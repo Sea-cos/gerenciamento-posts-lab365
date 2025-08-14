@@ -4,6 +4,7 @@ import "./App.css";
 function App() {
   const [titulo, setTitulo] = useState("");
   const [descricao, setDescricao] = useState("");
+  const [imagem, setImagem] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,6 +35,15 @@ function App() {
               id="descricao"
               onChange={(e) => setDescricao(e.target.value)}
               placeholder="Digite a descrição"
+            />
+
+            <label htmlFor="imagem">URL da imagem de capa</label>
+            <input 
+            type="url"  
+            id="imagem"
+            value={imagem}
+            onChange={(e) => setImagem(e.target.value)}
+            placeholder="URL da imagem de capa"
             />
           </form>
         </div>
