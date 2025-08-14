@@ -6,11 +6,12 @@ function App() {
   const [descricao, setDescricao] = useState("");
   const [imagem, setImagem] = useState("");
   const [data, setData] = useState("");
+  const [categoria, setCategoria] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     //codigo para salvar dados.
-  }
+  };
 
   return (
     <>
@@ -39,20 +40,34 @@ function App() {
             />
 
             <label htmlFor="imagem">URL da imagem de capa</label>
-            <input 
-            type="url"  
-            id="imagem"
-            value={imagem}
-            onChange={(e) => setImagem(e.target.value)}
-            placeholder="URL da imagem de capa"
+            <input
+              type="url"
+              id="imagem"
+              value={imagem}
+              onChange={(e) => setImagem(e.target.value)}
+              placeholder="URL da imagem de capa"
             />
 
             <label htmlFor="data">Data de publicação</label>
-            <input 
-            type="date" 
-            value={data}
-            onChange={(e) => setData(e.target.value)}
-            id="data" />
+            <input
+              type="date"
+              value={data}
+              onChange={(e) => setData(e.target.value)}
+              id="data"
+            />
+
+            <label htmlFor="categoria">Categoria</label>
+            <select
+              value={categoria}
+              id="categoria"
+              onChange={(e) => setCategoria(e.target.value)}
+            >
+              <option value="">Selecione uma categoria</option>
+              <option value="Artigo">Artigo</option>
+              <option value="Noticia">Noticia</option>
+              <option value="Tutorial">Tutorial</option>
+              <option value="Entrevista">Entrevista</option>
+            </select>
           </form>
         </div>
       </div>
