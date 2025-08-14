@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [titulo, setTitulo] = useState("");
+  const [descricao, setDescricao] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //codigo para salvar dados.
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="main">
+        <h1>Painel de Gerenciamento</h1>
+        <p>Atualmente, voce tem {} posts cadastrados</p>
+
+        <div className="div-form">
+          <p>Novo Post</p>
+          <form onSubmit={handleSubmit} id="form">
+            <label htmlFor="titulo">Título</label>
+            <input
+              type="text"
+              value={titulo}
+              id="titulo"
+              onChange={(e) => setTitulo(e.target.value)}
+              placeholder="Digite o titulo"
+            />
+
+            <label htmlFor="descricao">Descrição</label>
+            <textarea
+              value={descricao}
+              id="descricao"
+              onChange={(e) => setDescricao(e.target.value)}
+              placeholder="Digite a descrição"
+            />
+          </form>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
