@@ -5,6 +5,7 @@ function App() {
   const [titulo, setTitulo] = useState("");
   const [descricao, setDescricao] = useState("");
   const [imagem, setImagem] = useState("");
+  const [data, setData] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,6 +46,13 @@ function App() {
             onChange={(e) => setImagem(e.target.value)}
             placeholder="URL da imagem de capa"
             />
+
+            <label htmlFor="data">Data de publicação</label>
+            <input 
+            type="date" 
+            value={data}
+            onChange={(e) => setData(e.target.value)}
+            id="data" />
           </form>
         </div>
       </div>
