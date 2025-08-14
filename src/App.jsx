@@ -12,7 +12,41 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     //codigo para salvar dados.
-    toast.success("Oii");
+    if (!titulo.trim()) {
+      toast.error("O título é obrigatório.");
+      return;
+    }
+
+    if (!descricao.trim()) {
+      toast.error("A descrição é obrigatória.");
+      return;
+    }
+
+    if (!imagem.trim() || !imagem.startsWith("http")) {
+      toast.error("A URL da imagem deve começar com 'http'.");
+      return;
+    }
+
+    if (!categoria) {
+      toast.error("Selecione uma categoria.");
+      return;
+    }
+
+    const hoje = new Date();
+    const dataPublicacaoFormatada = new Date(data);
+
+    if (isNaN(dataPublicacaoFormatada.getTime())) {
+      toast.error("Data de publicação inválida.");
+      return;
+    }
+
+    if (dataPublicacaoFormatada < hoje.setHours(0, 0, 0, 0)) {
+      toast.error("A data de publicação deve ser hoje ou no futuro.");
+      return;
+    }
+
+    // Se passou por todas as validações
+    toast.success("Post criado com sucesso!");
   };
 
   return (
