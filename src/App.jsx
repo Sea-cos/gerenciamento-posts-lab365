@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -8,6 +8,12 @@ function App() {
   const [imagem, setImagem] = useState("");
   const [data, setData] = useState("");
   const [categoria, setCategoria] = useState("");
+  const [qtdPosts, setQtdPosts] = useState(0);
+
+  useEffect(() => {
+    const postsSalvo = JSON.parse(localStorage.getItem("posts")) || [];
+    setQtdPosts(postsSalvo.length);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,15 +51,34 @@ function App() {
       return;
     }
 
+    const novoPost = {
+      id: Date.now(),
+      titulo,
+      descricao,
+      imagem,
+      categoria,
+      data,
+    };
+
+    const postsExistentes = JSON.parse(localStorage.getItem("posts")) || [];
+    const listaAtualizada = [...postsExistentes, novoPost];
+    localStorage.setItem("posts", JSON.stringify(listaAtualizada));
+    setQtdPosts(listaAtualizada.length);
+
     // Se passou por todas as validações
     toast.success("Post criado com sucesso!");
+    setTitulo("");
+    setDescricao("");
+    setImagem("");
+    setCategoria("");
+    setData("");
   };
 
   return (
     <>
       <div className="main">
         <h1>Painel de Gerenciamento</h1>
-        <p>Atualmente, voce tem {} posts cadastrados</p>
+        <p>Atualmente, voce tem {qtdPosts} posts cadastrados</p>
 
         <div className="div-form">
           <p>Novo Post</p>
