@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { toast, ToastContainer } from "react-toastify";
 
 function App() {
   const [titulo, setTitulo] = useState("");
@@ -11,6 +12,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     //codigo para salvar dados.
+    toast.success("Oii");
   };
 
   return (
@@ -68,7 +70,10 @@ function App() {
               <option value="Tutorial">Tutorial</option>
               <option value="Entrevista">Entrevista</option>
             </select>
+
+            <button type="submit">Criar post</button>
           </form>
+          <ToastContainer />
         </div>
       </div>
     </>
