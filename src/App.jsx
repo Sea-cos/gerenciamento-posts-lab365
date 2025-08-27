@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { toast, ToastContainer } from "react-toastify";
+import PostsLists from "./pages/PostsLists";
 
 function App() {
   const [titulo, setTitulo] = useState("");
@@ -134,6 +135,7 @@ function App() {
           </form>
           <ToastContainer />
         </div>
+        <h2>Listagem de posts</h2>
       </div>
     </>
   );
