@@ -135,7 +135,7 @@ function App() {
           </form>
           <ToastContainer />
         </div>
-        <h2>Listagem de posts</h2>
+        <h1>Listagem de posts</h1>
       </div>
     </>
   );

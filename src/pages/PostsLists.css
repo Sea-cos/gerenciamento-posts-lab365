@@ -1,47 +1,47 @@
 .posts-container {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 1rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: sans-serif;
 }
 
-.posts-counts {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: #f9f9f9;
-  border-radius: 6px;
-  border: 1px solid #e0e0e0;
-}
-
-.posts-counts h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.1rem;
+.posts-container h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
   color: #333;
 }
 
+/* Contagem de categorias */
+.posts-counts {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
 .posts-counts ul {
-  list-style: none;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .posts-counts li {
   background: #fff;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   font-size: 0.95rem;
   color: #555;
 }
 
-.posts-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
+/* Mensagem de lista vazia */
 .empty-message {
   text-align: center;
   color: #777;
+  padding: 2rem 0;
+  font-style: italic;
 }

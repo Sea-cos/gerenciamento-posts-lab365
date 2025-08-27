@@ -29,7 +29,7 @@ function PostsLists() {
      <div className="posts-container">
       {/* Seção de contagem */}
       <div className="posts-counts">
-        <h3>Contagem de posts por categoria</h3>
+        <h3>Posts por categoria</h3>
         <ul>
           {Object.entries(countsByTipo).map(([tipo, count]) => (
             <li key={tipo}>
